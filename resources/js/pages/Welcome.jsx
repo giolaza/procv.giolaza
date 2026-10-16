@@ -1,4 +1,4 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 
 const LogoSvg = ({ height = 30 }) => (
     <svg height={height} viewBox="0 0 1824 341" xmlns="http://www.w3.org/2000/svg" aria-label="ProCV" style={{ display: 'block' }}>
@@ -32,6 +32,8 @@ const GoogleIcon = ({ color = 'color' }) => {
 };
 
 export default function Welcome() {
+    const { auth } = usePage().props;
+    const user = auth?.user;
     const year = new Date().getFullYear();
 
     return (
@@ -192,9 +194,15 @@ export default function Welcome() {
                 <div className="w">
                     <div className="nav-row">
                         <Link href="/" className="logo"><LogoSvg /></Link>
-                        <a href="/auth/google/redirect" className="g-btn">
-                            <GoogleIcon /> Sign in with Google
-                        </a>
+                        {user ? (
+                            <Link href="/dashboard" className="g-btn">
+                                Go to Dashboard →
+                            </Link>
+                        ) : (
+                            <a href="/auth/google/redirect" className="g-btn">
+                                <GoogleIcon /> Sign in with Google
+                            </a>
+                        )}
                     </div>
                 </div>
             </nav>
@@ -204,10 +212,18 @@ export default function Welcome() {
                     <div className="hero-label">AI-powered CV builder</div>
                     <h1>A resume that <em>works</em><span className="h1-accent"> for every application</span></h1>
                     <p className="hero-sub">Build a clean, professional CV in minutes. Fill in your details, pick a template, and download — ready to send.</p>
-                    <a href="/auth/google/redirect" className="g-btn-primary">
-                        <GoogleIcon color="white" /> Create your free CV
-                    </a>
-                    <p className="hero-trust">Free to start — no credit card needed</p>
+                    {user ? (
+                        <Link href="/dashboard" className="g-btn-primary">
+                            Go to Dashboard →
+                        </Link>
+                    ) : (
+                        <>
+                            <a href="/auth/google/redirect" className="g-btn-primary">
+                                <GoogleIcon color="white" /> Create your free CV
+                            </a>
+                            <p className="hero-trust">Free to start — no credit card needed</p>
+                        </>
+                    )}
                 </div>
             </section>
 
@@ -311,9 +327,15 @@ export default function Welcome() {
                                 <li className="off">PDF export</li>
                                 <li className="off">Job-specific tailoring</li>
                             </ul>
-                            <a href="/auth/google/redirect" className="plan-cta">
-                                <GoogleIcon /> Get started free
-                            </a>
+                            {user ? (
+                                <Link href="/dashboard" className="plan-cta">
+                                    Go to Dashboard →
+                                </Link>
+                            ) : (
+                                <a href="/auth/google/redirect" className="plan-cta">
+                                    <GoogleIcon /> Get started free
+                                </a>
+                            )}
                         </div>
                         <div className="plan plan-featured">
                             <div className="plan-name">Premium</div>
@@ -332,9 +354,15 @@ export default function Welcome() {
                                 <li>Job-specific tailoring</li>
                                 <li>Priority support</li>
                             </ul>
-                            <a href="/auth/google/redirect" className="plan-cta plan-cta-primary">
-                                <GoogleIcon color="white" /> Start Premium — €9/mo
-                            </a>
+                            {user ? (
+                                <Link href="/dashboard" className="plan-cta plan-cta-primary">
+                                    Go to Dashboard →
+                                </Link>
+                            ) : (
+                                <a href="/auth/google/redirect" className="plan-cta plan-cta-primary">
+                                    <GoogleIcon color="white" /> Start Premium — €9/mo
+                                </a>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -344,9 +372,15 @@ export default function Welcome() {
                 <div className="cta-in">
                     <h2 className="cta-h">Your next role starts with a <em>better</em> CV</h2>
                     <p className="cta-sub-text">Free · No credit card · Ready in under 3 minutes</p>
-                    <a href="/auth/google/redirect" className="g-btn-cta">
-                        <GoogleIcon /> Continue with Google
-                    </a>
+                    {user ? (
+                        <Link href="/dashboard" className="g-btn-cta">
+                            Go to Dashboard →
+                        </Link>
+                    ) : (
+                        <a href="/auth/google/redirect" className="g-btn-cta">
+                            <GoogleIcon /> Continue with Google
+                        </a>
+                    )}
                 </div>
             </section>
 

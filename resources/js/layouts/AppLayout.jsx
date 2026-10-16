@@ -174,12 +174,12 @@ export default function AppLayout({ children }) {
                     <div className="sidebar-user">
                         <div className="user-avatar">
                             {auth?.user?.avatar
-                                ? <img src={auth.user.avatar} alt={auth.user.name} />
-                                : (auth?.user?.name?.[0] ?? '?')
+                                ? <img src={auth.user.avatar} alt={auth.user.full_name} />
+                                : (auth?.user?.first_name?.[0] ?? '?')
                             }
                         </div>
                         <div className="user-info">
-                            <div className="user-name">{auth?.user?.name ?? 'User'}</div>
+                            <div className="user-name">{auth?.user?.full_name ?? 'User'}</div>
                             <div className={`user-plan${auth?.user?.is_premium ? ' premium' : ''}`}>
                                 {auth?.user?.is_premium ? 'Premium' : 'Free plan'}
                             </div>

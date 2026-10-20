@@ -62,27 +62,6 @@ export default function AppLayout({ children }) {
     return (
         <>
             <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap');
-                :root {
-                    --bg: #F9F8F5; --bg2: #F1EFE9; --bg3: #E8E5DC;
-                    --fg: #1A1F2E; --fg-mid: #4A4F5F; --fg-muted: #8A8F9F;
-                    --accent: #7b00e0; --accent-light: rgba(123,0,224,0.08);
-                    --rule: rgba(26,31,46,0.12);
-                    --sidebar-w: 220px;
-                    --font-d: 'Oxanium', monospace, sans-serif;
-                    --font-b: 'Source Sans 3', system-ui, sans-serif;
-                    color-scheme: light;
-                }
-                @media (prefers-color-scheme: dark) {
-                    :root:not([data-theme="light"]) {
-                        --bg: #141720; --bg2: #1B1F2D; --bg3: #22263A;
-                        --fg: #E8E6DF; --fg-mid: #A8ADBD; --fg-muted: #676C7C;
-                        --accent: #9b30ff; --accent-light: rgba(155,48,255,0.1);
-                        --rule: rgba(232,230,223,0.1); color-scheme: dark;
-                    }
-                }
-                *, *::before, *::after { box-sizing: border-box; }
-                body { margin: 0; font-family: var(--font-b); background: var(--bg); color: var(--fg); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
                 .app-shell { display: flex; min-height: 100vh; }
 

@@ -8,12 +8,16 @@
     },
     "dependencies": {
         "@inertiajs/react": "^2.0",
+        "downshift": "^9.4.0",
         "react": "^18.3",
-        "react-dom": "^18.3"
+        "react-country-phone-input": "^1.0.2",
+        "react-datepicker": "^9.1.0",
+        "react-dom": "^18.3",
+        "ziggy-js": "^2.6.5"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
-        "@vitejs/plugin-react-oxc": "^0.1",
+        "@vitejs/plugin-react-oxc": "^0.4.3",
         "concurrently": "^10.0.3",
         "laravel-vite-plugin": "^3.1",
         "tailwindcss": "^4.0.0",

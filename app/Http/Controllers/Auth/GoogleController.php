@@ -32,6 +32,8 @@ class GoogleController extends Controller
 
         Auth::login($user, remember: true);
 
-        return redirect()->intended('/dashboard');
+        return $user->wasRecentlyCreated
+            ? redirect()->route('cv.create')
+            : redirect()->intended('/dashboard');
     }
 }
